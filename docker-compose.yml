@@ -32,6 +32,9 @@
 
 services:
   broker:
+    deploy:
+      mode: replicated
+      replicas: 1
     image: docker.io/library/redis:7
     networks:
       - internal
@@ -40,6 +43,14 @@ services:
 
   db:
     image: docker.io/library/postgres:16
+    deploy:
+      replicas: 1
+      restart_policy:
+        condition: on-failure
+      placement:
+        constraints:
+          - node.role == manager
+          - node.labels.database == true
     networks:
       - internal
     volumes:
