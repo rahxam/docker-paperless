@@ -107,7 +107,8 @@ services:
       PAPERLESS_TIME_ZONE: Europe/Berlin
       PAPERLESS_REDIRECT_LOGIN_TO_SSO: 'true'
       PAPERLESS_APPS: "allauth.socialaccount.providers.openid_connect"
-      PAPERLESS_FILENAME_FORMAT: "{{ owner_username }}/Sonstiges/{{ created_year }}/{{ created }}_{{ title }}"
+      PAPERLESS_CONSUMER_RECURSIVE: 'true'
+      PAPERLESS_FILENAME_FORMAT: '{ owner_username }/Sonstiges/{ created_year }/{ created }_{ title }'
       PAPERLESS_SOCIALACCOUNT_PROVIDERS: '{"openid_connect": {"APPS": [{"provider_id": "authentik","name": "Authentik SSO","client_id": "YUasu7DvRrDtUqphVcIyqnFpwXuNVosSlccVBKYz","secret": "RjNuiD09GSNNejHk9aDGUzR5JIDhKRebsMzz15E6Hu0sr5AihOtfrt1mSjiraR2IdEUob4bBxaCKbxcIjdGRVvs9CIzBClRfTpD23GLah78KwEnnVeY24jqAQhL9ZSWB","settings": { "server_url": "https://authentik.hartig.es/application/o/paperless/.well-known/openid-configuration"}}]}}'
 
   gotenberg:
